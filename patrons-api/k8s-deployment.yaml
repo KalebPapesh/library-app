@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patrons-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patrons-api
+  template:
+    metadata:
+      labels:
+        app: patrons-api
+    spec:
+      containers:
+        - name: patrons-api
+          image: electroretronerd/patrons-api
+          ports:
+            - containerPort: 3001

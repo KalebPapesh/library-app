@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: circulation-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: circulation-api
+  template:
+    metadata:
+      labels:
+        app: circulation-api
+    spec:
+      containers:
+        - name: circulation-api
+          image: electroretronerd/circulation-api
+          ports:
+            - containerPort: 3002
